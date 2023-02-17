@@ -1,0 +1,13 @@
+[theme]
+
+# for interactive elements
+primaryColor="#F63366"
+
+#main background color
+backgroundColor="#fffcfa"
+
+secondaryBackgroundColor="#F0F2F6"
+
+textColor="#262730"
+
+font="sans serif"
