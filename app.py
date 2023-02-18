@@ -148,30 +148,32 @@ def converter():
     from urllib.error import URLError
 
     st.markdown(f"# {list(page_names_to_funcs.keys())[1]}")
-        # Store the initial value of widgets in session state
+    # Store the initial value of widgets in session state
     with st.container():
         currency = st.text_input(
             "Enter a Denomination: Dollars or Naira 👇",
         )
+
         def conversion(currency):
-                if currency == "Dollars":
-                    dollar = int(st.number_input("Please type in Dollar value: "))
-                    rate = 720
-                    value = (dollar * rate)
-                    st.write(dollar, "Dollars to Naira is equivalent to", value, "Naira")
-                elif currency == "Naira":
-                    naira = int(st.number_input("Please type in Naira value: "))
-                    rate = 720
-                    value = (naira / rate)
-                    st.write(naira, "Naira to Dollars is equivalent to", value, "Dollars")
-                else:
-                    st.write("Please type in a value.")
+            if currency == "Dollars" or "Dollar":
+                dollar = int(st.number_input("Please type in Dollar value: "))
+                rate = 720
+                value = dollar * rate
+                st.write(dollar, "Dollars to Naira is equivalent to", value, "Naira")
+            elif currency == "Naira":
+                naira = int(st.number_input("Please type in Naira value: "))
+                rate = 720
+                value = naira / rate
+                st.write(naira, "Naira to Dollars is equivalent to", value, "Dollars")
+            else:
+                st.write("Please type in a value.")
 
         if currency:
             st.write(conversion(currency))
 
+
 @st.cache_data
-def sendMoney():
+def airtmtocash():
     import streamlit as st
 
     st.markdown(f"# {list(page_names_to_funcs.keys())[2]}")
@@ -186,8 +188,8 @@ def contact():
 
 page_names_to_funcs = {
     "International Money Transfer": intro,
-    "Converter": converter,
-    "Send Money": sendMoney,
+    "Currency Converter": converter,
+    "Convert Airtime to Cash": airtmtocash,
     "Contact Us": contact,
 }
 
